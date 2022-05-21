@@ -27,6 +27,7 @@ function filterRole() {
 
 // Untuk funsi search
 watch(search, value => {
+    // tereksekusi ketika ada perubahan di data search
     Inertia.get(route('user.index'), {
         search: value,
         role: role.value,
@@ -77,13 +78,14 @@ watch(search, value => {
                                 </div>
                             </td>
                             <td class="text-muted" data-label="Role">
-                                User
+                                {{ user.role }}
                             </td>
                             <td>
                                 <div class="btn-list flex-nowrap">
-                                    <a href="#" class="btn">
+                                    <!-- tombol tag a di ganti jadi link lalu di bind href -->
+                                    <Link :href="route('user.edit', {id:user.id})" class="btn">
                                         Edit
-                                    </a>
+                                    </Link>
                                     <div class="dropdown">
                                         <button class="btn dropdown-toggle align-text-top" data-bs-toggle="dropdown">
                                             Actions

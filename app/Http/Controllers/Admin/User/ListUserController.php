@@ -41,7 +41,7 @@ class ListUserController extends Controller
         // ]);
 
         //CARA KETIGA SEARCH
-
+        // withQueryString digunakan untuk nahan si route biar bisa masuk role dan search
         return Inertia::render('Admin/User/ListUser', [
             'users' => User::query()
                 ->when($request->search, function ($query) use ($request) {
