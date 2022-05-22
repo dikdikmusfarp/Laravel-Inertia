@@ -2,14 +2,30 @@
 import { Link } from '@inertiajs/inertia-vue3';
 import AdminLayout from '@/Layouts/Admin/AdminLayout.vue'
 import Pagination from '@/Components/Pagination.vue';
+import { ref } from '@vue/reactivity';
+import { Inertia } from '@inertiajs/inertia';
 
 
+
+const status = ref(props.filters.status)
+const user_id = ref(props.filters.user_id)
 
 const props = defineProps({
 
     items: Object,
+    users: Object,
+    filters: Object,
 
 })
+
+function filterItem() {
+    Inertia.get(route('item.index'), {
+        status: status.value,
+        user_id: user_id.value,
+    }, {
+        preserveState: true,
+    })
+}
 
 </script>
 
@@ -17,6 +33,19 @@ const props = defineProps({
     <AdminLayout>
         <template #pretitle>Item</template>
         <template #title>List Item</template>
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <select v-model="status"  @change="filterItem" class="form-select">
+                    <option value="active">Active</option>
+                    <option value="pending">Pending</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <select v-model="user_id" @change="filterItem" class="form-select">
+                    <option v-for="user in users" :key="user.id" :value="user.id">{{user.name}}</option>
+                </select>
+            </div>
+        </div>
         <div class="card">
             <div class="table-responsive">
                 <table class="table table-vcenter table-mobile-md card-table">
@@ -27,7 +56,7 @@ const props = defineProps({
                             <th>Price</th>
                             <th>Views</th>
                             <th>Status</th>
-                            <!-- <th>User</th> -->
+                            <th>User</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -52,9 +81,9 @@ const props = defineProps({
                             <td class="text-muted" data-label="Role">
                                 {{ item.approved_at ? 'Approved' : 'Pending' }}
                             </td>
-                            <!-- <td class="text-muted" data-label="Role">
+                            <td class="text-muted" data-label="Role">
                                 {{ item.user.name }}
-                            </td> -->
+                            </td>
                             <td>
                                 <div class="btn-list flex-nowrap">
                                     <div class="dropdown">
@@ -80,7 +109,7 @@ const props = defineProps({
                 </table>
             </div>
 
-            <div class="card-footer d-flex align-items-center">
+            <div v-if="items.data.length > 0" class="card-footer d-flex align-items-center">
                 <!-- Ngambil dari Pagination component -->
                 <Pagination :links="items.links"></Pagination>
             </div>

@@ -34,13 +34,18 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 
-Route::inertia('admin', 'Admin/Home');
-Route::get('user', ListUserController::class)->name('user.index');
-Route::get('user/{user}/edit', EditUserController::class)->name('user.edit');
-Route::put('user/{user}', UpdateUserController::class)->name('user.update');
-Route::delete('user/{user}', DeleteUserController::class)->name('user.destroy');
+Route::middleware('auth')->group(function () {
+    // USER
+    Route::inertia('admin', 'Admin/Home');
+    Route::get('user', ListUserController::class)->name('user.index');
+    Route::get('user/{user}/edit', EditUserController::class)->name('user.edit');
+    Route::put('user/{user}', UpdateUserController::class)->name('user.update');
+    Route::delete('user/{user}', DeleteUserController::class)->name('user.destroy');
+    // ITEM
+    Route::get('item', ListItemController::class)->name('item.index');
+});
 
-Route::get('item', ListItemController::class)->name('item.index');
+
 
 
 require __DIR__ . '/auth.php';

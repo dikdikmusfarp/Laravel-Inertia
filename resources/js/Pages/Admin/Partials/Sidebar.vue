@@ -127,38 +127,59 @@ import { Link } from '@inertiajs/inertia-vue3';
                     </li>
                     <li class="nav-item">
                         <Link class="nav-link" :href="route('user.index')" href="./form-elements.html">
-                            <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                <!-- Download SVG icon from http://tabler-icons.io/i/checkbox -->
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
-                                    viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                    stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                    <polyline points="9 11 12 14 20 6" />
-                                    <path d="M20 12v6a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h9" />
-                                </svg>
-                            </span>
-                            <span class="nav-link-title">
-                                User
-                            </span>
+                        <span class="nav-link-icon d-md-none d-lg-inline-block">
+                            <!-- Download SVG icon from http://tabler-icons.io/i/checkbox -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <polyline points="9 11 12 14 20 6" />
+                                <path d="M20 12v6a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h9" />
+                            </svg>
+                        </span>
+                        <span class="nav-link-title">
+                            User
+                        </span>
                         </Link>
                     </li>
                     <li class="nav-item">
                         <Link class="nav-link" :href="route('item.index')" href="./form-elements.html">
-                            <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                <!-- Download SVG icon from http://tabler-icons.io/i/checkbox -->
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
-                                    viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                    stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                    <polyline points="9 11 12 14 20 6" />
-                                    <path d="M20 12v6a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h9" />
-                                </svg>
-                            </span>
-                            <span class="nav-link-title">
-                                Item
-                            </span>
+                        <span class="nav-link-icon d-md-none d-lg-inline-block">
+                            <!-- Download SVG icon from http://tabler-icons.io/i/checkbox -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <polyline points="9 11 12 14 20 6" />
+                                <path d="M20 12v6a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h9" />
+                            </svg>
+                        </span>
+                        <span class="nav-link-title">
+                            Item
+                        </span>
                         </Link>
                     </li>
+                    <li class="nav-item">
+                        <Link class="nav-link" :href="route('logout')" method="post">
+                        <span class="nav-link-icon d-md-none d-lg-inline-block">
+                            <!-- Download SVG icon from http://tabler-icons.io/i/checkbox -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-logout"
+                                width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <desc>Download more icon variants from https://tabler-icons.io/i/logout</desc>
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <path
+                                    d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2">
+                                </path>
+                                <path d="M7 12h14l-3 -3m0 6l3 -3"></path>
+                            </svg>
+                        </span>
+                        <span class="nav-link-title">
+                            Log out
+                        </span>
+                        </Link>
+                    </li>
+
                 </ul>
             </div>
         </div>
