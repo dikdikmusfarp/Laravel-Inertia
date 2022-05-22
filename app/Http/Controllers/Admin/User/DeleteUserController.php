@@ -5,9 +5,8 @@ namespace App\Http\Controllers\Admin\User;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Inertia\Inertia;
 
-class EditUserController extends Controller
+class DeleteUserController extends Controller
 {
     /**
      * Handle the incoming request.
@@ -15,12 +14,12 @@ class EditUserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-
-    // ngebuka view edit dan ambil data user
     public function __invoke(Request $request, User $user)
     {
-        return Inertia::render('Admin/User/EditUser', [
-            'user' => $user,
-        ]);
+        $user->delete();
+
+        session()->flash('error', 'User data deleted.');
+
+        return redirect()->route('user.index');
     }
 }

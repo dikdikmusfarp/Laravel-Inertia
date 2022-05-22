@@ -1,8 +1,9 @@
 <script setup>
 import { Link } from '@inertiajs/inertia-vue3';
 import AdminLayout from '@/Layouts/Admin/AdminLayout.vue'
-import { ref,watch } from 'vue';
+import { ref, watch } from 'vue';
 import { Inertia } from '@inertiajs/inertia';
+import Pagination from '@/Components/Pagination.vue';
 
 
 const search = ref(props.filters?.search)
@@ -40,8 +41,10 @@ watch(search, value => {
 
 <template>
     <AdminLayout>
-        <template #pretitle>User</template> <!--Seperti fungsi section @section('pretitle')-->
-        <template #title>List User</template> <!--Seperti fungsi section @section('title')-->
+        <template #pretitle>User</template>
+        <!--Seperti fungsi section @section('pretitle')-->
+        <template #title>List User</template>
+        <!--Seperti fungsi section @section('title')-->
 
         <div class="row">
             <div class="col-md-6">
@@ -83,20 +86,18 @@ watch(search, value => {
                             <td>
                                 <div class="btn-list flex-nowrap">
                                     <!-- tombol tag a di ganti jadi link lalu di bind href -->
-                                    <Link :href="route('user.edit', {id:user.id})" class="btn">
-                                        Edit
+                                    <Link :href="route('user.edit', { id: user.id })" class="btn">
+                                    Edit
                                     </Link>
                                     <div class="dropdown">
                                         <button class="btn dropdown-toggle align-text-top" data-bs-toggle="dropdown">
                                             Actions
                                         </button>
                                         <div class="dropdown-menu dropdown-menu-end">
-                                            <a class="dropdown-item" href="#">
-                                                Action
-                                            </a>
-                                            <a class="dropdown-item" href="#">
-                                                Another action
-                                            </a>
+                                            <Link :href="route('user.destroy', { id: user.id })" method="delete"
+                                                as="button" class="dropdown-item" href="#">
+                                            Delete
+                                            </Link>
                                         </div>
                                     </div>
                                 </div>
@@ -106,15 +107,8 @@ watch(search, value => {
                 </table>
             </div>
             <div class="card-footer d-flex align-items-center">
-                <p class="m-0 text-muted">Showing <span>1</span> to <span>8</span> of <span>16</span> entries</p>
-                <ul class="pagination m-0 ms-auto">
-                    <!-- ini untuk pagination tag a bisa diganti menjadi tag link-->
-                    <!-- bind class diambil untuk if trus tulisannya akan aktif-->
-                    <li class="page-item" :class="{ 'active': link.active }" v-for="link in users.links">
-                        <Link :href="link.url" class="page-link" v-html="link.label">
-                        </Link>
-                    </li>
-                </ul>
+                <!-- Ngambil dari Pagination component -->
+                <Pagination :links="users.links"></Pagination>
             </div>
         </div>
     </AdminLayout>

@@ -15,6 +15,8 @@ class UpdateUserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    // Update data user, ignore gunanya biar yang punya user masih bisa pake username yang dia sebelumnya, unique validation
     public function __invoke(Request $request, User $user)
     {
         $data = $request->validate([
@@ -24,6 +26,6 @@ class UpdateUserController extends Controller
         ]);
         $user->update($data);
 
-        return redirect()->route('user.index');
+        return redirect()->route('user.index')->with('success', 'User data updated.');
     }
 }
