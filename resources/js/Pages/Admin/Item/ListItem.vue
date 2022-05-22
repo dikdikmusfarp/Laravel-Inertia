@@ -4,6 +4,7 @@ import AdminLayout from '@/Layouts/Admin/AdminLayout.vue'
 import Pagination from '@/Components/Pagination.vue';
 import { ref } from '@vue/reactivity';
 import { Inertia } from '@inertiajs/inertia';
+import { Head } from '@inertiajs/inertia-vue3';
 
 
 
@@ -19,7 +20,7 @@ const props = defineProps({
 })
 
 function filterItem() {
-    Inertia.get(route('item.index'), {
+    Inertia.get(route('admin.item.index'), {
         status: status.value,
         user_id: user_id.value,
     }, {
@@ -30,6 +31,7 @@ function filterItem() {
 </script>
 
 <template>
+    <Head title="List Item"></Head>
     <AdminLayout>
         <template #pretitle>Item</template>
         <template #title>List Item</template>
@@ -90,16 +92,14 @@ function filterItem() {
                                         <button class="btn dropdown-toggle align-text-top" data-bs-toggle="dropdown">
                                             Actions
                                         </button>
-                                        <!-- <div class="dropdown-menu dropdown-menu-end">
+                                        <div class="dropdown-menu dropdown-menu-end">
                                             <Link class="dropdown-item">
-                                            Edit
+                                                Edit
                                             </Link>
-                                            <Link v-if="item.approved_at == null"
-                                                :href="route('admin.item.approve', { id: item.id })" method="put"
-                                                as="button" class="dropdown-item" href="#">
-                                            Approve
+                                            <Link v-if="item.approved_at == null" :href="route('admin.item.approve', {id:item.id})" method="put" as="button" class="dropdown-item" href="#">
+                                                Approve
                                             </Link>
-                                        </div> -->
+                                        </div>
                                     </div>
                                 </div>
                             </td>

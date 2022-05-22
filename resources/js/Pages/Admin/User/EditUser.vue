@@ -1,6 +1,7 @@
 <script setup>
 import AdminLayout from '@/Layouts/Admin/AdminLayout.vue';
 import { useForm } from '@inertiajs/inertia-vue3';
+import { Head } from '@inertiajs/inertia-vue3';
 
 
 const props = defineProps({
@@ -23,6 +24,7 @@ const submit = () => {
 </script>
 
 <template>
+    <Head title="List User"></Head>
     <AdminLayout>
         <template #pretitle>User Data</template>
         <template #title>Edit User Data</template>

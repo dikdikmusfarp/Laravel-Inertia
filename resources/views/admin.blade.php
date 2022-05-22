@@ -9,6 +9,7 @@
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+    <link href="{{ asset('dist/css/tabler.min.css') }}" rel="stylesheet" />
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
@@ -24,6 +25,7 @@
     @env('local')
     <script src="http://localhost:8080/js/bundle.js"></script>
     @endenv
+    <script src="{{ asset('dist/js/tabler.min.js') }}"></script>
 </body>
 
 </html>

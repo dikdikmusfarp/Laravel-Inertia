@@ -1,13 +1,9 @@
 <?php
 
-use App\Http\Controllers\Admin\Item\ListItemController;
-use App\Http\Controllers\Admin\User\DeleteUserController;
+
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
-use App\Http\Controllers\Admin\User\EditUserController;
-use App\Http\Controllers\Admin\User\ListUserController;
-use App\Http\Controllers\Admin\User\UpdateUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,16 +30,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 
-Route::middleware('auth')->group(function () {
-    // USER
-    Route::inertia('admin', 'Admin/Home');
-    Route::get('user', ListUserController::class)->name('user.index');
-    Route::get('user/{user}/edit', EditUserController::class)->name('user.edit');
-    Route::put('user/{user}', UpdateUserController::class)->name('user.update');
-    Route::delete('user/{user}', DeleteUserController::class)->name('user.destroy');
-    // ITEM
-    Route::get('item', ListItemController::class)->name('item.index');
-});
+
 
 
 

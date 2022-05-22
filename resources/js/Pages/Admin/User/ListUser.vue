@@ -4,6 +4,7 @@ import AdminLayout from '@/Layouts/Admin/AdminLayout.vue'
 import { ref, watch } from 'vue';
 import { Inertia } from '@inertiajs/inertia';
 import Pagination from '@/Components/Pagination.vue';
+import { Head } from '@inertiajs/inertia-vue3';
 
 
 const search = ref(props.filters?.search)
@@ -16,7 +17,7 @@ const props = defineProps({
 })
 
 function filterRole() {
-    Inertia.get(route('user.index'), {
+    Inertia.get(route('admin.user.index'), {
         role: role.value,
         search: search.value,
     }, {
@@ -29,7 +30,7 @@ function filterRole() {
 // Untuk funsi search
 watch(search, value => {
     // tereksekusi ketika ada perubahan di data search
-    Inertia.get(route('user.index'), {
+    Inertia.get(route('admin.user.index'), {
         search: value,
         role: role.value,
     }, {
@@ -40,6 +41,7 @@ watch(search, value => {
 </script>
 
 <template>
+    <Head title="List User"></Head>
     <AdminLayout>
         <template #pretitle>User</template>
         <!--Seperti fungsi section @section('pretitle')-->
@@ -86,7 +88,7 @@ watch(search, value => {
                             <td>
                                 <div class="btn-list flex-nowrap">
                                     <!-- tombol tag a di ganti jadi link lalu di bind href -->
-                                    <Link :href="route('user.edit', { id: user.id })" class="btn">
+                                    <Link :href="route('admin.user.edit', { id: user.id })" class="btn">
                                     Edit
                                     </Link>
                                     <div class="dropdown">
@@ -94,7 +96,7 @@ watch(search, value => {
                                             Actions
                                         </button>
                                         <div class="dropdown-menu dropdown-menu-end">
-                                            <Link :href="route('user.destroy', { id: user.id })" method="delete"
+                                            <Link :href="route('admin.user.destroy', { id: user.id })" method="delete"
                                                 as="button" class="dropdown-item" href="#">
                                             Delete
                                             </Link>
