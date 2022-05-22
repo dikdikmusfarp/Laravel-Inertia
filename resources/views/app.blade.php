@@ -11,6 +11,12 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+    </style>
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+
 
     <!-- Scripts -->
     @routes
@@ -18,7 +24,7 @@
     @inertiaHead
 </head>
 
-<body class="font-sans antialiased">
+<body class="bg-dark">
     @inertia
 
     @env('local')

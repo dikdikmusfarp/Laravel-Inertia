@@ -1,3 +1,22 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+ .card-container::-webkit-scrollbar {
+     appearance: none;
+ }
+
+ .flex::before,
+ .flex::after {
+     display: none !important;
+ }
+
+ @layer components {
+     .nav-item {
+         @apply w-max text-nardo-gray text-base;
+     }
+
+     .nav-item.active {
+         @apply text-white border-b-2 border-yello mb-[-2px] font-semibold;
+     }
+ }
