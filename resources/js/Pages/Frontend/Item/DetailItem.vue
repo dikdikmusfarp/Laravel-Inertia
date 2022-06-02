@@ -14,7 +14,7 @@ defineProps({
 
 
 <template>
-    <Head :title="item.name"></Head>
+    <Head :title="item.data.name"></Head>
     <FrontendLayout>
         <section
             class="max-w-screen-2xl mx-auto xl:px-[140px] lg:px-[95px] px-3 pt-20 pb-[100px] relative overflow-x-clip">
@@ -24,26 +24,26 @@ defineProps({
             <div
                 class="flex flex-col lg:flex-row md:justify-center lg:items-center space-y-[110px] lg:space-y-0 lg:space-x-[110px] font-raleway">
                 <div class="headline-content flex flex-col gap-[30px] lg:w-1/2">
-                    <div class="font-bold text-white text-[55px]">{{ item.name }}</div>
+                    <div class="font-bold text-white text-[55px]">{{ item.data.name }}</div>
                     <p class="text-[18px] text-nardo-gray leading-8 mb-0">
-                        {{ item.description }}
+                        {{ item.data.description }}
                     </p>
 
                     <div class="flex items-center">
                         <p class="text-nardo-gray text-lg">Latest Price:</p>
                         <div class="flex items-center rounded-full px-4 py-[7px] bg-lemon-green ml-[15px]">
                             <img src="assets/images/ic-crypto.svg" alt="">
-                            <p class="text-deep-green font-bold text-sm ml-[6px]">{{ item.price }}</p>
+                            <p class="text-deep-green font-bold text-sm ml-[6px]">{{ item.data.price }}</p>
                         </div>
                     </div>
 
                     <!-- Author -->
                     <div class="flex items-center gap-4">
-                        <img :src="item.user.avatar_url" class="w-[60px] border border-nardo-gray p-2 rounded-full"
+                        <img :src="item.data.user.avatar_url" class="w-[60px] border border-nardo-gray p-2 rounded-full"
                             alt="">
                         <div class="grid">
-                            <div class="font-semibold text-white text-lg">{{ item.user.name }}</div>
-                            <p class="text-base text-nardo-gray">@{{ item.user.username }}</p>
+                            <div class="font-semibold text-white text-lg">{{ item.data.user.name }}</div>
+                            <p class="text-base text-nardo-gray">@{{ item.data.user.username }}</p>
                         </div>
                     </div>
 
@@ -56,7 +56,7 @@ defineProps({
                 </div>
 
                 <div class="product-preview w-full md:w-[596px]">
-                    <img :src="item.image"
+                    <img :src="item.data.image"
                         class="h-auto w-full rounded-[30px] md:rounded-[60px] object-cover drop-shadow-[0_18px_28px_rgba(25,79,155,0.45)]"
                         alt="">
                 </div>

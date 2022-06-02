@@ -47,21 +47,28 @@ class User extends Authenticatable
         'avatar_url',
     ];
 
-    public function getUserInitialName() {
+    public function getUserInitialName()
+    {
         $words = explode(' ', $this->name);
         $acronym = ' ';
 
-        foreach ($words as $word){
+        foreach ($words as $word) {
             $acronym .= $word[0];
         }
 
         return $acronym;
     }
 
-    public function getAvatarUrlAttribute() {
+    public function getAvatarUrlAttribute()
+    {
         if ($this->avatar) {
             return asset($this->avatar);
         }
-        return 'https://via.placeholder.com/512x512/2D1959/FFFFFF&text='.$this->getUserInitialName();
+        return 'https://via.placeholder.com/512x512/2D1959/FFFFFF&text=' . $this->getUserInitialName();
+    }
+
+    public function items()
+    {
+        return $this->hasMany(Item::class);
     }
 }

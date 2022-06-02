@@ -81,7 +81,7 @@ function filterItem() {
                                 {{ item.views }}
                             </td>
                             <td class="text-muted" data-label="Role">
-                                {{ item.approved_at ? 'Approved' : 'Pending' }}
+                                {{ item.is_approved }}
                             </td>
                             <td class="text-muted" data-label="Role">
                                 {{ item.user.name }}
@@ -109,9 +109,9 @@ function filterItem() {
                 </table>
             </div>
 
-            <div v-if="items.data.length > 0" class="card-footer d-flex align-items-center">
+            <div v-if="items.meta.to > 0" class="card-footer d-flex align-items-center">
                 <!-- Ngambil dari Pagination component -->
-                <Pagination :links="items.links"></Pagination>
+                <Pagination :links="items.meta.links"></Pagination>
             </div>
         </div>
     </AdminLayout>
