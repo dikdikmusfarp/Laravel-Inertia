@@ -2,6 +2,7 @@
 
 import FrontendLayout from '@/Layouts/Frontend/FrontendLayout.vue';
 import { Head, Link } from '@inertiajs/inertia-vue3';
+import ItemCard from '@/Components/Frontend/ItemCard.vue';
 
 
 defineProps({
@@ -40,12 +41,12 @@ defineProps({
                 </div>
 
                 <div class="product-preview w-full md:w-[596px]">
-                    <img :src="randomItem.image"
+                    <img :src="randomItem.data.image"
                         class="h-auto w-full rounded-[30px] md:rounded-[60px] object-cover" alt="">
                     <div class="mt-[30px] flex justify-between items-center">
                         <div class="product-detail">
-                            <div class="text-[28px] text-white font-semibold">{{ randomItem.name }}</div>
-                            <p class="text-nardo-gray text-lg">{{ randomItem.price }}</p>
+                            <div class="text-[28px] text-white font-semibold">{{ randomItem.data.name }}</div>
+                            <p class="text-nardo-gray text-lg">{{ randomItem.data.price }}</p>
                         </div>
                         <a href="#!"
                             class="py-[13px] px-[34px] bg-yello rounded-full text-center drop-shadow-[0_12px_12px_rgba(249,200,90,0.4)]">
@@ -90,18 +91,7 @@ defineProps({
             <!-- Card Container -->
             <div class="flex flex-nowrap gap-[50px] overflow-x-auto card-container">
                 <!-- Card -->
-                <div class="grid relative" v-for="item in todayItems" :key="item.id">
-                    <Link :href="route('item.show', item.id)" class="inset-0 absolute z-10"></Link>
-                    <div class="relative product-image w-[295px] drop-shadow-[0_12px_8px_rgba(229,123,218,0.15)]">
-                        <img :src="item.image" class="rounded-3xl height-full object-cover" alt="">
-                        <div class="flex items-center rounded-full px-4 py-[7px] bg-lemon-green absolute top-5 right-5">
-                            <img src="assets/images/ic-crypto.svg" alt="">
-                            <p class="text-deep-green font-bold text-sm ml-[6px]">{{ item.price }}</p>
-                        </div>
-                    </div>
-                    <div class="font-semibold text-[22px] text-[#FEFCFD] mt-6">{{ item.user.name }}</div>
-                    <p class="text-nardo-gray text-base">{{ item.user.username }}</p>
-                </div>
+                <ItemCard :items="todayItems.data"></ItemCard>
             </div>
         </section>
 

@@ -19,11 +19,11 @@ class DetailItemController extends Controller
     public function __invoke(Request $request, Item $item)
     {
         $item->increment('views');
-        return ItemResource::make($item->load('user'));
+        // return ItemResource::make($item->load('user'));
         // return ItemResource::make($item);
         return Inertia::render('Frontend/Item/DetailItem', [
             'item' => ItemResource::make($item->load('user')),
-            'similarItems' => Item::with('user')->inRandomOrder()->take(4)->get(),
+            'similarItems' => ItemResource::collection(Item::with('user')->inRandomOrder()->take(4)->get()),
         ]);
     }
 }
