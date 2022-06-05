@@ -40,6 +40,14 @@ watch(search, value => {
 })
 </script>
 
+<script>
+
+export default {
+    layout: AdminLayout,
+}
+
+</script>
+
 <template>
     <Head title="List User"></Head>
     <AdminLayout>

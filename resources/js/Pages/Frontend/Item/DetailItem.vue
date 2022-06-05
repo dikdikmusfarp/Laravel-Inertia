@@ -14,10 +14,11 @@ defineProps({
 
 
 
+
+
 <template>
 
     <Head :title="item.data.name"></Head>
-    <FrontendLayout>
         <section
             class="max-w-screen-2xl mx-auto xl:px-[140px] lg:px-[95px] px-3 pt-20 pb-[100px] relative overflow-x-clip">
             <img src="/assets/images/ornament.svg" class="absolute -right-[10%] top-[20%] -z-10" alt="">
@@ -159,5 +160,4 @@ defineProps({
                 <ItemCard :items="similarItems.data"></ItemCard>
             </div>
         </section>
-    </FrontendLayout>
 </template>

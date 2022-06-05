@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\Item\ApproveItemController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\User\EditUserController;
@@ -7,6 +8,9 @@ use App\Http\Controllers\Admin\User\ListUserController;
 use App\Http\Controllers\Admin\User\UpdateUserController;
 use App\Http\Controllers\Admin\Item\ListItemController;
 use App\Http\Controllers\Admin\User\DeleteUserController;
+
+Route::inertia('login', 'Admin/Auth/Login');
+Route::post('login', LoginController::class)->name('login');
 
 
 Route::middleware('auth', 'role.admin')->group(function () {

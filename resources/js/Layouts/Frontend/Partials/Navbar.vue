@@ -64,6 +64,9 @@ const openDropdownProfile = ref(false);
                                 <Link :href="route('dashboard')" class="transition-all hover:bg-sky-100 px-4 py-3">
                                 Dashboard
                                 </Link>
+                                <Link :href="route('profile')" class="transition-all hover:bg-sky-100 px-4 py-3">
+                                Profile
+                                </Link>
                                 <!-- <Link :href="route('profile')" class="transition-all hover:bg-sky-100 px-4 py-3">My
                                 Profile
                                 </Link>

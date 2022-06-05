@@ -32,4 +32,9 @@ class Item extends Model
     {
         return $query->whereNull('approved_at');
     }
+
+    public function scopeRandomItems($query, $limit = 4)
+    {
+        return $query->active()->inRandomOrder()->take($limit)->get();
+    }
 }

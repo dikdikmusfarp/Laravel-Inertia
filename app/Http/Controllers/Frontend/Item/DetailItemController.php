@@ -23,7 +23,7 @@ class DetailItemController extends Controller
         // return ItemResource::make($item);
         return Inertia::render('Frontend/Item/DetailItem', [
             'item' => ItemResource::make($item->load('user')),
-            'similarItems' => ItemResource::collection(Item::with('user')->inRandomOrder()->take(4)->get()),
+            'similarItems' => ItemResource::collection(Item::with('user')->randomItems()),
         ]);
     }
 }
