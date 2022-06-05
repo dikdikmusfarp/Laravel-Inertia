@@ -1200,6 +1200,10 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(90 87 111 / var(--tw-bg-opacity));
 }
+.bg-blue-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
+}
 .fill-current {
   fill: currentColor;
 }
@@ -1346,6 +1350,9 @@ select {
 }
 .text-center {
   text-align: center;
+}
+.text-right {
+  text-align: right;
 }
 .align-text-top {
   vertical-align: text-top;

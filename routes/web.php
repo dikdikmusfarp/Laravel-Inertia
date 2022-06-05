@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Frontend\Item\DetailItemController;
+use App\Http\Controllers\Frontend\Item\EditItemController;
+use App\Http\Controllers\Frontend\Item\UpdateItemController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\User\UploadItemController;
@@ -23,6 +25,10 @@ Route::get('/', HomepageController::class)->name('homepage');
 Route::get('/item/{item}', DetailItemController::class)->name('item.show');
 Route::get('/profile', ProfileController::class)->middleware('auth')->name('profile');
 Route::post('/item', UploadItemController::class)->middleware('auth')->name('item.store');
+Route::get('/item/{item}/edit', EditItemController::class)->middleware('auth')->name('item.edit');
+Route::put('/item/{item}/', UpdateItemController::class)->middleware('auth')->name('item.update');
+
+
 
 
 
