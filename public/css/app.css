@@ -720,6 +720,10 @@ select {
   margin-left: auto;
   margin-right: auto;
 }
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
 .ml-3 {
   margin-left: 0.75rem;
 }
@@ -792,8 +796,8 @@ select {
 .mt-1 {
   margin-top: 0.25rem;
 }
-.ml-\[15px\] {
-  margin-left: 15px;
+.ml-\[10px\] {
+  margin-left: 10px;
 }
 .mt-5 {
   margin-top: 1.25rem;
@@ -801,8 +805,8 @@ select {
 .mt-\[50px\] {
   margin-top: 50px;
 }
-.ml-\[10px\] {
-  margin-left: 10px;
+.ml-\[15px\] {
+  margin-left: 15px;
 }
 .block {
   display: block;
@@ -887,14 +891,14 @@ select {
 .w-7 {
   width: 1.75rem;
 }
+.w-\[45px\] {
+  width: 45px;
+}
 .w-1 {
   width: 0.25rem;
 }
 .w-\[60px\] {
   width: 60px;
-}
-.w-\[45px\] {
-  width: 45px;
 }
 .min-w-\[180px\] {
   min-width: 180px;
@@ -1022,17 +1026,17 @@ select {
 .gap-4 {
   gap: 1rem;
 }
-.gap-\[30px\] {
-  gap: 30px;
-}
-.gap-6 {
-  gap: 1.5rem;
-}
 .gap-2 {
   gap: 0.5rem;
 }
 .gap-1 {
   gap: 0.25rem;
+}
+.gap-6 {
+  gap: 1.5rem;
+}
+.gap-\[30px\] {
+  gap: 30px;
 }
 .gap-x-\[90px\] {
   -moz-column-gap: 90px;
@@ -1066,6 +1070,11 @@ select {
   margin-top: calc(10px * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(10px * var(--tw-space-y-reverse));
 }
+.space-y-2 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
+}
 .overflow-hidden {
   overflow: hidden;
 }
@@ -1095,6 +1104,9 @@ select {
 }
 .rounded-2xl {
   border-radius: 1rem;
+}
+.rounded-lg {
+  border-radius: 0.5rem;
 }
 .rounded-l-md {
   border-top-left-radius: 0.375rem;
@@ -1206,6 +1218,9 @@ select {
 }
 .p-0 {
   padding: 0px;
+}
+.p-4 {
+  padding: 1rem;
 }
 .px-4 {
   padding-left: 1rem;
@@ -1376,11 +1391,11 @@ select {
 .text-\[22px\] {
   font-size: 22px;
 }
-.text-\[55px\] {
-  font-size: 55px;
-}
 .text-\[32px\] {
   font-size: 32px;
+}
+.text-\[55px\] {
+  font-size: 55px;
 }
 .font-medium {
   font-weight: 500;
@@ -1500,6 +1515,10 @@ select {
 .text-input-text {
   --tw-text-opacity: 1;
   color: rgb(228 225 245 / var(--tw-text-opacity));
+}
+.text-red-500 {
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity));
 }
 .underline {
   -webkit-text-decoration-line: underline;

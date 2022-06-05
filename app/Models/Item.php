@@ -14,6 +14,15 @@ class Item extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function getImageUrl()
+    {
+        if ($this->image) {
+            return asset('storage/' . $this->image);
+        }
+
+        return null;
+    }
+
     public function scopeActive($query)
     {
         return $query->whereNotNull('approved_at');

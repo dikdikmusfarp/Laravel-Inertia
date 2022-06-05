@@ -35,7 +35,7 @@ const openDropdownProfile = ref(false);
             <!-- Navigation Menu -->
             <div class="hidden lg:block" id="navbar-item">
                 <div class="nav-link flex flex-col lg:flex-row lg:items-center gap-5 lg:gap-12 font-raleway">
-                    <a href="index.html" class="nav-item active">Home</a>
+                    <Link :href="route('homepage')" class="nav-item">Home</Link>
                     <a href="#!" class="nav-item">Browse</a>
                     <a href="#!" class="nav-item">Creators</a>
                     <a href="#!" class="nav-item">Story</a>

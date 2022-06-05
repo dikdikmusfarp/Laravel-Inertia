@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Frontend\Item\DetailItemController;
 use App\Http\Controllers\HomepageController;
+use App\Http\Controllers\User\ProfileController;
+use App\Http\Controllers\User\UploadItemController;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
@@ -19,6 +21,10 @@ use Illuminate\Foundation\Application;
 
 Route::get('/', HomepageController::class)->name('homepage');
 Route::get('/item/{item}', DetailItemController::class)->name('item.show');
+Route::get('/profile', ProfileController::class)->middleware('auth')->name('profile');
+Route::post('/item', UploadItemController::class)->middleware('auth')->name('item.store');
+
+
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
