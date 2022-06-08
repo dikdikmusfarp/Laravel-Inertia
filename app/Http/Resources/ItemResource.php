@@ -31,6 +31,12 @@ class ItemResource extends JsonResource
             // 'is_approved' => (bool) $this->approved_at,
             'is_approved' => $this->approved_at ? 'Disetujui' : 'Pending',
             'user' => UserResource::make($this->whenLoaded('user')),
+            // 'editable' => $request->user()?->can('update', $this->resource),
+            // 'editable' => optional($request->user())->can('update', $this->resource),
+            'can' => [
+                'edit' => optional($request->user())->can('update', $this->resource),
+                'delete' => optional($request->user())->can('delete', $this->resource)
+            ]
         ];
     }
 }

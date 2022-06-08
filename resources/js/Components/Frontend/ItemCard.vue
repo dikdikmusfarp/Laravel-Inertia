@@ -20,7 +20,10 @@ defineProps({
         </Link>
         <div class="flex justify-between">
             <span class="font-semibold text-[22px] text-[#FEFCFD] mt-6">{{ item.name }}</span>
-            <Link :href="route('item.edit', item.id)" class="bg-blue-500 rounded p-4 text-white">Edit</Link>
+            <Link v-show="item.can.edit" :href="route('item.edit', item.id)" class="bg-blue-500 rounded p-4 text-white">
+            Edit</Link>
+            <Link v-show="item.can.delete" class="bg-red-500 rounded p-4 text-white">
+            Delete</Link>
         </div>
         <p class="text-nardo-gray text-base">@{{ item.user.username }}</p>
     </div>

@@ -21,6 +21,8 @@ class UpdateItemController extends Controller
         //     'image' => 'image'
         // ]);
         // dd($request->all());
+        $this->authorize('update',$item);
+
         $image = $item->image;
 
         if ($request->hasFile('image')) {

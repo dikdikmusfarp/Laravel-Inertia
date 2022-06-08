@@ -18,6 +18,8 @@ class EditItemController extends Controller
      */
     public function __invoke(Request $request, Item $item)
     {
+
+        // return ItemResource::make($item);
         /** Mengambil ID USER yang login
          * $request->user()->id
          * Auth::id()
@@ -25,12 +27,13 @@ class EditItemController extends Controller
          *
          * */
 
-        if (auth()->id() !== $item->user_id) {
-            abort(403);
-        }
+        // if (auth()->id() !== $item->user_id) {
+        //     abort(403);
+        // }
 
 
         // return ItemResource::make($item);
+        $this->authorize('update', $item);
         return Inertia::render('Frontend/Item/EditItem', [
             'item' => ItemResource::make($item),
         ]);
